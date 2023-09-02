@@ -1,0 +1,21 @@
+databases:
+  - name: frontend-hands-on-230826-db
+    databaseName: frontend_hands_on_230826_db
+    user: frontend_hands_on_230826_db_user
+    region: singapore
+
+services:
+  - type: web
+    name: frontend-hands-on-230826
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: frontend-hands-on-230826-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
