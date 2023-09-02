@@ -18,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_26_062429) do
   end
 
   create_table "monsters", force: :cascade do |t|
-    t.string "name"
-    t.integer "level"
+    t.string "name", null: false
+    t.integer "level", null: false
     t.integer "monster_species_id", null: false
     t.integer "owner_id", null: false
     t.datetime "created_at", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_26_062429) do
   end
 
   create_table "trainers", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

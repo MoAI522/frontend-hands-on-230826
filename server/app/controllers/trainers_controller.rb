@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TrainersController < ApplicationController
   def index
     trainers = Trainer.all

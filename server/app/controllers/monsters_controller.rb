@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MonstersController < ApplicationController
   def create
     monster = Monster.new(monster_params)
